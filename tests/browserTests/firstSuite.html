@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="../../dist/test-suite.js"></script>
+<script src="../test.introduction.js"></script>
+<script src="../test.showhtml.methods.js"></script>
+<script>
+    var test = new testSuite();
+    testIntroduction(test);
+    testShowHtmlMethods(test);
+    document.body.innerHTML = "";
+    test.drawing().showHtml();
+</script>
+</body>
+</html>

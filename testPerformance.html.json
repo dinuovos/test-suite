@@ -1,0 +1,131 @@
+[
+    {
+        "label": "expecting synchronization with js timer ( this will fail on some browser/PC if following testcases have heavy duty)",
+        "testCases": [
+            {
+                "label": "expecting 1 second",
+                "value": 1001.0000000183936
+            },
+            {
+                "label": "expecting 2 second",
+                "value": 2002.0000000076834
+            }
+        ],
+        "faster": 0,
+        "slower": 1,
+        "type": "perf"
+    },
+    {
+        "label": "is it true that Statements or assignments of al loop statementplaced outside the loop <a target='_blank' href='https://www.w3schools.com/js/js_performance.asp'>will make the loop run faster?</a>",
+        "testCases": [
+            {
+                "label": "outside the loop",
+                "value": 10.09999998495914
+            },
+            {
+                "label": "inside the loop",
+                "value": 6.400000012945384
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    },
+    {
+        "label": "'for' statements or Array.prototype.forEach? Which is faster?",
+        "testCases": [
+            {
+                "label": "for statement",
+                "value": 7.500000006984919
+            },
+            {
+                "label": "Array.prototype.forEach",
+                "value": 0.10000000474974513
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    },
+    {
+        "label": "writing HTML or creating HTML",
+        "testCases": [
+            {
+                "label": "write",
+                "value": 148.1999999959953
+            },
+            {
+                "label": "create",
+                "value": 99.59999998682179
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    }
+][
+    {
+        "label": "expecting synchronization with js timer ( this will fail on some browser/PC if following testcases have heavy duty)",
+        "testCases": [
+            {
+                "label": "expecting 1 second",
+                "value": 1001.0000000183936
+            },
+            {
+                "label": "expecting 2 second",
+                "value": 2002.0000000076834
+            }
+        ],
+        "faster": 0,
+        "slower": 1,
+        "type": "perf"
+    },
+    {
+        "label": "is it true that Statements or assignments of al loop statementplaced outside the loop <a target='_blank' href='https://www.w3schools.com/js/js_performance.asp'>will make the loop run faster?</a>",
+        "testCases": [
+            {
+                "label": "outside the loop",
+                "value": 10.09999998495914
+            },
+            {
+                "label": "inside the loop",
+                "value": 6.400000012945384
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    },
+    {
+        "label": "'for' statements or Array.prototype.forEach? Which is faster?",
+        "testCases": [
+            {
+                "label": "for statement",
+                "value": 7.500000006984919
+            },
+            {
+                "label": "Array.prototype.forEach",
+                "value": 0.10000000474974513
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    },
+    {
+        "label": "writing HTML or creating HTML",
+        "testCases": [
+            {
+                "label": "write",
+                "value": 148.1999999959953
+            },
+            {
+                "label": "create",
+                "value": 99.59999998682179
+            }
+        ],
+        "faster": 1,
+        "slower": 0,
+        "type": "perf"
+    }
+]

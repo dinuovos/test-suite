@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestJS performance test</title>
+</head>
+<body>
+<div id="testcase" style="width:100%"></div>
+<div id="test-target-box"></div>
+<script src="../dist/test-suite.js"></script>
+<script src="test.performance.js"></script>
+<script src="test.performance2.js"></script>
+<script>
+    var test = new testSuite({
+        onSuiteTerminate : function(suite){
+            console.log(suite.label + " is terminated");
+            test.drawing().showHtml(testcase);
+        },
+        onAsyncTerminate : function(){
+            test.drawing().showHtml(testcase).showHtmlInPopUp();
+            console.log(test.getTotalResult);
+        }
+    });
+    testSuitePerformance(test);
+    testSuitePerformance2(test);
+</script>
+</body>
+</html>
