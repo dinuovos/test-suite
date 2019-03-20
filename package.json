@@ -1,17 +1,24 @@
 {
   "name": "@dinuovos/test-suite",
-  "version": "0.0.9",
-  "description": "testing suite for javascript",
+  "version": "0.0.10",
+  "description": "A simple and small testing suite for javascript, both browser and node.js",
+  "keywords" : [
+    "node.js",
+    "html",
+    "javascript",
+    "js",
+    "test",
+    "testing",
+    "browser",
+    "headless"
+  ],
   "main": "./dist/test-suite.js",
   "files": [
     "dist/",
     "bin/",
     "tests/"
   ],
-  "author": {
-    "name": "Simone Di Nuovo",
-    "email": "dinuovos@gmail.com"
-  },
+  "author": "Simone Di Nuovo <dinuovos@gmail.com> (https://www.linkedin.com/in/simonedinuovo/)",
   "license": "ISC",
   "bin": {
     "test-suite": "./bin/testsuite.js"
@@ -24,13 +31,14 @@
     "type": "git",
     "url": "https://github.com/dinuovos/test-suite.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "puppeteer": "1.10.0",
+    "puppeteer-core": "1.12.2"
+  },
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-uglify": "^4.0.0",
-    "puppeteer": "1.10.0",
-    "puppeteer-core": "1.12.2"
+    "grunt-contrib-uglify": "^4.0.0"
   }
 }
