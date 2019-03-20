@@ -1,6 +1,6 @@
 {
   "name": "@dinuovos/test-suite",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A simple and small testing suite for javascript, both browser and node.js",
   "keywords" : [
     "node.js",

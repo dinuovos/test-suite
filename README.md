@@ -73,6 +73,11 @@ console.log(test.tests)
 ## Asynchronous test
 ```js
 // asynchronous tests  
+var test = new testSuite({
+ onAsyncTerminate : function(){ // function called when alla async tests are terminated
+    console.log(test.tests)
+ }
+});
 test.createSuite("testJS asynchronous", function () {  
     test.createTestCase("timeout 1 second , exit process expected after" +
     "approx 1s  ",function(done){  // <- note the callback
@@ -88,9 +93,7 @@ test.createSuite("testJS asynchronous", function () {
 	    },1000);  
 	 });  
  });
-  // after 1 second 
- console.log(test.tests);
- // will print
+  // after 1 second will print
  [{
         "label": "testJS asynchronous",
         "testCases": [
@@ -105,6 +108,11 @@ test.createSuite("testJS asynchronous", function () {
 ```
 ## Performance test
 ```js
+var test = new testSuite({
+ onAsyncTerminate : function(){ // function called when alla async tests are terminated
+    console.log(test.tests)
+ }
+});
 test.createSuitePerformance("'for' statements or Array.prototype.forEach? Which is faster?", function () {  
     var howManyLoops = 1500;  
     var arr = new Array(howManyLoops);  
@@ -138,9 +146,7 @@ test.createSuitePerformance("expecting synchronization with js timer ( this will
         },1000);  
     },true);  // <- asynchronous performance test case expects third parameters set to true
 });
-  // after 1 second 
- console.log(test.tests);
- // will print
+  // after 1 second will print
  [{
         "label": "'for' statements or Array.prototype.forEach? Which is faster?",
         "testCases": [
@@ -173,6 +179,25 @@ test.createSuitePerformance("expecting synchronization with js timer ( this will
 See much more examples in action at 
 https://dinuovos.github.io/test-suite/ !
 
+## Options
+```js
+/**  
+ * testSuite.js default option object 
+ * @property{boolean} printError - attach a listen on window (browser) and print error on console  
+ * @property{boolean} attachErrorOnBody - errors will be appended to document.body ( with a giant red h1 tag )
+ * @property{boolean} printLog - print testSuite.js logs on console  
+ * @property{function} onAsyncTerminate - callback to be called after all async testcase will be terminated  
+ * @property{function} onSuiteTerminate - callback to be called after a suite is terminated and don't have pendings  
+ * */
+ var defaults = {  
+    printError : true,  
+    printLog : true,  
+    attachErrorOnBody : true,  
+    onAsyncTerminate : function(){},  
+    onSuiteTerminate : function(){}  
+};
+var tests = new testSuite(defaults );
+```
 ## Node.js CLI
 When install this package, a node.js bin command called "test-suite" will be added.
 To work, it reads a configuration json called "test.manager.json"
