@@ -1,5 +1,14 @@
 [
   {
+    "label" : "An introduction test",
+    "module" : "/tests/test.introduction.for.node.js"
+  },
+  {
+    "label" : "Show html tests",
+    "module" : "/tests/browser-tests/test.showhtml.methods.html",
+    "headless" : true
+  },
+  {
     "label" : "Testing test-suite syntax and data organization",
     "module" : "/tests/test.data.organization.js"
   },
@@ -9,7 +18,7 @@
   },
   {
     "label" : "Testing expect.toBeInView method, alongside the first and the second module of this list, in headless browser(puppeteer)",
-    "module" : "/tests/test.html",
+    "module" : "/tests/browser-tests/test.expect.toBeInView.html",
     "headless" : true
   },
   {
@@ -18,7 +27,7 @@
   },
   {
     "label" : "Test performance create/write DOM elements",
-    "module" : "/tests/testPerformance.html",
+    "module" : "/tests/browser-tests/test.performance.create.HTML.html",
     "headless" : true
   }
 ]

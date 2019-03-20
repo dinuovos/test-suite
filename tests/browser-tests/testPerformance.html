@@ -7,9 +7,9 @@
 <body>
 <div id="testcase" style="width:100%"></div>
 <div id="test-target-box"></div>
-<script src="../dist/test-suite.js"></script>
-<script src="test.performance.js"></script>
-<script src="test.performance2.js"></script>
+<script src="../../dist/test-suite.min.js"></script>
+<script src="../../tests/test.performance.js"></script>
+<script src="../test.suite.performance.create.HTML.js"></script>
 <script>
     var test = new testSuite({
         onSuiteTerminate : function(suite){
@@ -22,7 +22,7 @@
         }
     });
     testSuitePerformance(test);
-    testSuitePerformance2(test);
+    testSuitePerformanceCreateHTML(test);
 </script>
 </body>
 </html>

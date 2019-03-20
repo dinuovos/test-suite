@@ -1,0 +1,140 @@
+{
+    "total": 16,
+    "passed": 15,
+    "failed": 1,
+    "pendings": 0,
+    "tests": [
+        {
+            "label": "TestJS test suite",
+            "testCases": [
+                {
+                    "label": "TestCase #1",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "TestCase #2",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "A suite 2",
+            "testCases": [
+                {
+                    "label": "TestCase #1",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "TestCase #2 ( False expected! )",
+                    "value": [
+                        false
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "Testing all and information about data output",
+            "testCases": [
+                {
+                    "label": "test.tests is an array",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "test.tests have three suites at this moment",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "First test(test.tests[0]) has property label set to 'TestJS test suite'",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "First test(test.tests[0]) has an array type property 'testCases'",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "Second test(test.tests[1]), second test case(test.tests[1].testCases[1]) has an array type property 'value'",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "The first expect ( and the only one ) of the first suite second test case has value false",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "Expect is global on window, exportable in node.js with module.exports. Remember that not declaring test.expect in testcase mean no resolution of the module in testsuite CLI",
+            "testCases": [
+                {
+                    "label": "expect(window || module.exports) to be not undefined will return true",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "Suite expose also performanceMeasuring function, measuring the time between performanceMeasuring.startPerf() and performanceMeasuring.endPerf() statements",
+            "testCases": [
+                {
+                    "label": "calling these statements sequentially will produce a number greater or equal than 0",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "testSuite has a getter 'getTotalResult', an object with properties:'total','passed', 'failed' and 'pendings'.testSuite.getTotalResult was called before the declaration of this suite.",
+            "testCases": [
+                {
+                    "label": "expect testSuite.getTotalResult.total to be 13. The pending case is ignored, every test.expect in every test case will be added.",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "expect testSuite.getTotalResult.passed to be 12",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "expect testSuite.getTotalResult.failed to be 1 ( the second in the second suite )",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "expect testSuite.pendingTest.pendings to be 0",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        }
+    ]
+}

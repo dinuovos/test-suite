@@ -1,3 +1,4 @@
+"use strict";
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 function testPuppeteer(url,filename,path){
@@ -17,29 +18,37 @@ function testPuppeteer(url,filename,path){
                 .waitForSelector('.testSuite-suite')
                 .then(async() => {
                     var ua = await page.evaluate(() => window.navigator.userAgent);
-                    var uaTestPhrase = "[puppeteer test] Puppeteer test on \n" + ua + "\n";
+                    var uaTestPhrase = "[puppeteer test] Puppeteer test\n" +
+                        filename +
+                        "\n on \n" + ua + "\n";
                     var tableResult = await page.evaluate(() => document.querySelector('.testSuite-suite').outerHTML);
                     var testResult = await page.evaluate(() => window.test.getTotalResult);
-                    var tests = await page.evaluate(() => window.test.tests);
-                    if (testResult.passed) {
+                    var test = await page.evaluate(() => window.test);
+                    if (!testResult.failed && !testResult.pendings) {
                         console.log("\x1b[32m",
                             uaTestPhrase +
-                            " gave no false test. Check " + filename +
+                            " gave no false test." +
+                            "\n" + JSON.stringify(testResult) +"\n"+
+                            "Check " + filename +
                             "-puppeteer-testresult.html" + " for more info",
                             "\x1b[0m")
                     }
                     else
                         console.error("\x1b[31m",
-                            uaTestPhrase + " gave falses tests. Check " + filename +
+                            uaTestPhrase + " gave falses or pendings tests. " +
+                            "\n" + JSON.stringify(testResult) +"\n"+
+                            "Check " + filename +
                             "-puppeteer-testresult.html" + " for more info",
                             "\x1b[0m");
-                    resolve(tests);
+
+                    test.getTotalResult = testResult;
+                    resolve(test,testResult);
                     await browser.close(()=>console.log("--- BROWSER EXIT ---"));
                 });
         }
         catch(e){
-            console.log("[puppeteer test] Puppeteer launcher error");
-            console.log(e);
+            console.error("[puppeteer test error] Puppeteer launcher error at",filename);
+            console.error(e);
             if(browser)
                 (async()=> await browser.close(()=>console.log("--- BROWSER EXIT ---")) )();
             reject(e);

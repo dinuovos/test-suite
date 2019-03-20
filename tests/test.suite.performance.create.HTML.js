@@ -1,5 +1,5 @@
 (function(){
-    function testSuitePerformance2(test) {
+    function testSuitePerformanceCreateHTML(test) {
         test.createSuitePerformance("writing HTML or creating HTML", function () {
             var howManyLoops = 15000;
             var testTargetBox=document.getElementById("test-target-box");
@@ -31,7 +31,7 @@
         });
     }
     if(typeof window !== "undefined")
-        window.testSuitePerformance2 = testSuitePerformance2;
+        window.testSuitePerformanceCreateHTML = testSuitePerformanceCreateHTML;
     else
-        module.exports = testSuitePerformance2;
+        module.exports = testSuitePerformanceCreateHTML;
 })();

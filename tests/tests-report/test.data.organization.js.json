@@ -1,0 +1,64 @@
+{
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "pendings": 0,
+    "tests": [
+        {
+            "label": "testJS data organization",
+            "testCases": [
+                {
+                    "label": "The first suite label is \"testJS data organization\"",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "The First Case label \"The first case is 'testJS data organization'\"",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "The first three cases ( including this ) are true",
+                    "value": [
+                        true,
+                        true,
+                        true
+                    ]
+                },
+                {
+                    "label": "a test case can have more values from more expects, like the one before",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "testJS asynchronous",
+            "testCases": [
+                {
+                    "label": "timeout 1 second , exit process expected after approx 1s  ",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "timeout 2 seconds , exit process expected after approx 2s  ",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "timeout 4 seconds , exit process expected after approx 4s  ",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        }
+    ]
+}

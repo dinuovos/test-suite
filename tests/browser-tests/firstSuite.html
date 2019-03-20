@@ -5,13 +5,11 @@
     <title></title>
 </head>
 <body>
-<script src="../../dist/test-suite.js"></script>
-<script src="../test.introduction.js"></script>
-<script src="../test.showhtml.methods.js"></script>
+<script src="../../dist/test-suite.min.js"></script>
+<script src="../test.introduction.IE11.js"></script>
 <script>
     var test = new testSuite();
     testIntroduction(test);
-    testShowHtmlMethods(test);
     document.body.innerHTML = "";
     test.drawing().showHtml();
 </script>

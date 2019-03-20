@@ -1,0 +1,106 @@
+{
+    "total": 15,
+    "passed": 14,
+    "failed": 1,
+    "pendings": 1,
+    "tests": [
+        {
+            "label": "A preparation suite",
+            "testCases": [
+                {
+                    "label": "This is true",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "This is false",
+                    "value": [
+                        false
+                    ]
+                },
+                {
+                    "label": "This is pending because you forgot to call test.expect",
+                    "value": []
+                },
+                {
+                    "label": "This is true",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "When the tests are finished, you can call testSuite.drawing(). It will create a table-like html output, with a report of all testes you have already performed",
+            "testCases": [
+                {
+                    "label": "after calling testSuite.drawing() ( before set this suite ), expect string testSuite.html have length",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "test.html has a table with class 'testSuite-suite' ",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "expect that table will have 1 tag th ( representing the suitedefined above ),with a tr tag as parent and a h1 tag as children.Expect that, by now, there are three testcase ( one is defined in source code but is pending because no call to test.expect was performed.. Also expect that h1 tag will match the corresponding text in testSuite.test[index].label",
+                    "value": [
+                        true,
+                        true,
+                        true,
+                        true,
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "Method showHtml",
+            "testCases": [
+                {
+                    "label": "showHtml, with no arguments, will replace document.body content with testSuite.html",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "showHtml, with first argument null ( or falsy ), and the second argument setted at true, will append html to document.body",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "showHtml, with first argument setted with a DOM element, will replace its content with testSuite.html",
+                    "value": [
+                        true
+                    ]
+                },
+                {
+                    "label": "showHtml, with first argument setted with a DOM element as first argument, and the second argument setted at true, will append html to the DOM element",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        },
+        {
+            "label": "Method showHtmlInPopup",
+            "testCases": [
+                {
+                    "label": "Calling testSuite.showHtmlInPoput, will open a new window popup with document.body equal to testSuite.html ( this will fail if you don't enable popups on this domain )",
+                    "value": [
+                        true
+                    ]
+                }
+            ],
+            "type": "general"
+        }
+    ]
+}

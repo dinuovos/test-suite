@@ -43,29 +43,13 @@ function testIntroduction(test) {
         "with module.exports",function() {
         test.createTestCase("expect(window || module.exports) to be not undefined will return true",function() {
             var ctx;
-            if(typeof window === "undefined") {
-                var {expect} = require("../dist/test-suite");
-                ctx = module.exports;
-            }
-            else {
-                ctx = w;
-                var expect = w.expect;
-            }
-            var expectTest = expect(ctx).not().toBeUndefined();
+            var expectTest = expect(window).not().toBeUndefined();
             test.expect(expectTest).toBe(true);
         });
         test.createTestCase("However, in test cases, if you don't call testSuite.expect " +
             "it will remain in pending, because this case will be interpreted as an asynchronous call",function() {
             var ctx;
-            if(typeof window === "undefined") {
-                var {expect} = require("../dist/test-suite");
-                ctx = module.exports;
-            }
-            else{
-                ctx = w;
-                var expect = w.expect;
-            }
-            var expectTest = expect(ctx).not().toBeUndefined();
+            var expectTest = expect(window).not().toBeUndefined();
             // this will never print. test.tests[3].testCases[1].value[0] will be undefined
         });
         test.createTestCase("In test cases, if you don't call testSuite.expect " +
@@ -79,10 +63,6 @@ function testIntroduction(test) {
         "between performanceMeasuring.startPerf() and " +
         "performanceMeasuring.endPerf() statements",function() {
         test.createTestCase("calling these statements sequentially will produce a number greater or equal than 0",function() {
-            if(typeof window === "undefined")
-                var {performanceMeasuring} = require("../dist/test-suite");
-            else
-                var performanceMeasuring = w.performanceMeasuring;
             var start = performanceMeasuring.startPerf();
             var res = performanceMeasuring.endPerf(start);
             console.log(res);
@@ -113,5 +93,3 @@ function testIntroduction(test) {
         });
     });
 }
-if(typeof window === "undefined")
-    module.exports = testIntroduction;

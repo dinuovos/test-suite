@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@dinuovos/test-suite Usage of createSuitePerformance method</title>
+</head>
+<body>
+<div id="testcase" style="width:100%"></div>
+<div id="test-target-box"></div>
+<script src="../../dist/test-suite.min.js"></script>
+<script src="../test.suite.performance.create.HTML.js"></script>
+<script>
+    var test = new testSuite();
+    testSuitePerformanceCreateHTML(test);
+    test.drawing().showHtml(testcase);
+</script>
+</body>
+</html>

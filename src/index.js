@@ -42,7 +42,7 @@ function testSuite(options){
         remove: function (testcase) {
             this.pendingTests = this.pendingTests.filter(function(e) { return e.testcase !== testcase });
             if (!this.pendingTests.length)
-                $self.options.onAsyncTerminate();
+                $self.options.onAsyncTerminate($self);
         }
     };
     if (isw)
@@ -160,7 +160,7 @@ testSuite.prototype.expect = function(el){
     var options = {
         cb : function(test){
             testSuite = $self.__testsuite;
-            var testCase = $self.__testcase;
+            testCase = $self.__testcase;
             testCase.value.push(test);
             $self.log("[testSuite.js creating testcase] " + testCase.label);
             // assign colors to console...
@@ -213,7 +213,7 @@ testSuite.prototype.drawing = function(){
                     ? "green" : "red";
                 testing += '<tr style="color:white;text-align:center;background-color:'+ color
                     + '">';
-                testing += '<td style="width:50%"><h3>'  + theTestCase.label + '</h3></td><td><h4>'
+                testing += '<td style="width:50%"><h3 style="padding:0 10px">'  + theTestCase.label + '</h3></td><td><h4>'
                     + entries + '</h4></td>';
                 testing += '</tr>';
                 continue;
@@ -226,7 +226,7 @@ testSuite.prototype.drawing = function(){
                 testing += '<tr style="color:white;text-align:center;background-color:'+ color
                     + '">';
                 numbering = entries.length > 1 ? " #" + entry  : "";
-                testing += '<td style="width:50%"><h3>'  + testCases[testCase].label + numbering + '</h3></td><td><h4>'
+                testing += '<td style="width:50%"><h3 style="padding:0 10px">'  + testCases[testCase].label + numbering + '</h3></td><td><h4>'
                     + entries[entry] + '</h4></td>';
                 testing += '</tr>'
             }
