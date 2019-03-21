@@ -100,7 +100,5 @@ function testIntroduction(test) {
         });
     });
 }
-if(typeof window !== "undefined")
-    window.testIntroduction = testIntroduction;
-else
+if(typeof window === "undefined")
     module.exports = testIntroduction;

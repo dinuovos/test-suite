@@ -8,7 +8,8 @@
                 return w.performance.now() - time;
             else {
                 var diff = process.hrtime(time);
-                return Number("" + diff[0] + "." + diff[1]);
+                console.log(diff);
+                return ( diff[0] * 1000 ) + ( diff[1]/ 1e6 );
         }
     }
 };

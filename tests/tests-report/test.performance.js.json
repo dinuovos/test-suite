@@ -9,15 +9,15 @@
             "testCases": [
                 {
                     "label": "expecting 1 second",
-                    "value": 1.448031
+                    "value": 1000.495005
                 },
                 {
                     "label": "expecting 2 second",
-                    "value": 2.41054
+                    "value": 2002.167917
                 },
                 {
                     "label": "expecting 4 second",
-                    "value": 3.999498284
+                    "value": 4001.073695
                 }
             ],
             "faster": 0,
@@ -29,11 +29,11 @@
             "testCases": [
                 {
                     "label": "outside the loop",
-                    "value": 0.6150853
+                    "value": 6.52862
                 },
                 {
                     "label": "inside the loop",
-                    "value": 0.4065832
+                    "value": 5.483346
                 }
             ],
             "faster": 1,
@@ -45,11 +45,11 @@
             "testCases": [
                 {
                     "label": "for statement",
-                    "value": 0.5084264
+                    "value": 5.451767
                 },
                 {
                     "label": "Array.prototype.forEach",
-                    "value": 0.143291
+                    "value": 0.094738
                 }
             ],
             "faster": 1,

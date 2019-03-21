@@ -9,11 +9,11 @@
             "testCases": [
                 {
                     "label": "write",
-                    "value": 108.20000001695007
+                    "value": 107.69999999320135
                 },
                 {
                     "label": "create",
-                    "value": 101.19999997550622
+                    "value": 101.3999999850057
                 }
             ],
             "faster": 1,

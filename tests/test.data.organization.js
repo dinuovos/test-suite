@@ -1,4 +1,4 @@
-(function(){
+
     function testDataOrganization(test) {
         test.createSuite("testJS data organization", function () {
             test.createTestCase("The first suite label is \"testJS data organization\"", function () {
@@ -42,8 +42,5 @@
             })
         });
     }
-    if(typeof window !== "undefined")
-        window.testDataOrganization = testDataOrganization;
-    else
-        module.exports = testDataOrganization;
-})();
+if(typeof window === "undefined")
+    module.exports = testDataOrganization;

@@ -96,7 +96,5 @@ function testShowHtmlMethods(test) {
         });
     });
 }
-if(typeof window !== "undefined")
-    window.testShowHtmlMethods = testShowHtmlMethods;
-else
+if(typeof window === "undefined")
     module.exports = testShowHtmlMethods;
