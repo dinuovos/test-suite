@@ -1,35 +1,5 @@
 "use strict";
-(function(w,isw){/**
- * wrapper around console.log to print colors
- */
-function c(msg,color){
-    !isw && console.log(color || "",
-        msg,
-        "\x1b[0m");
-    isw && console.log('%c'+
-        msg,
-        color ? "color:" + color : "");
-}
-function merge(add,base,extension) {
-    if(Object.hasOwnProperty('assign'))
-        return Object.assign(base,add);
-    var target = Array.isArray(base) ? [] : {};
-    for (var i in base) {
-        var typeNode = Object.prototype.toString.call(base[k]);
-        if ( ( typeNode == "[object Object]" || typeNode == "[object Array]" ) &&
-               base[i] )
-            target[i] = add[i] ? merge(add[i],base[i],extension) : base[i];
-        else
-            target[i] = add[i] || base[i];
-    }
-
-    if(extension)
-        for (var k in add)
-            target[k] = target[k] || add[k];
-
-    return target;
-}
-
+(function(w,isw){
 /**
  * testSuite.js default option object
  * @property{boolean} printError - attach a listen on window (browser) and print error on console
@@ -174,46 +144,16 @@ var defaults = {
         return new expect(el,options);
     };
 })(typeof window !== "undefined" ? window : module.exports);
-(function(w){
-    w.performanceMeasuring = {
-        startPerf: function () {
-            return w.performance ? w.performance.now() : process.hrtime();
-        },
-        endPerf : function (time){
-            if (w.performance)
-                return w.performance.now() - time;
-            else {
-                var diff = process.hrtime(time);
-                console.log(diff);
-                return ( diff[0] * 1000 ) + ( diff[1]/ 1e6 );
-        }
-    }
-};
-})(typeof window !== "undefined" ? window : module.exports);
-
-function windowErrorMonitoring(attachErrorOnBody) {
-    if(window)
-        window.addEventListener('error', function (e) {
-            var msg = "Message: " + e.message;
-            var filename = "\nFilename: " + e.filename;
-            var colno = "\n Position -> line: " + e.lineno + ", col: " + e.colno;
-            var error = "\n Error: " + e.error;
-            console.error("[testSuite.js logging window errors]", msg, filename, colno, error);
-            if(attachErrorOnBody)
-                document.body.innerHTML += "<h1 style=" +
-                    "'width:100%!important;display:block!important;opacity:1!important;" +
-                    "color:red!important;text-shadow: 1px 1px 1em black!important;" +
-                    "font-size:24px!important;position:static!important;float:left!important;" +
-                    "transform:none!important;text-indent:0!important'>" +
-                    "[testSuite.js error monitoring]\n" + msg + filename + colno + error + "</h1>"
-        });
-    else{
-        var EventEmitter = require('events');
-        var myEmitter = new EventEmitter();
-        myEmitter.on('error',function(err){
-            console.error("[testSuite.js error monitoring]\n",JSON.stringify(err));
-        });
-    }
+/**
+ * wrapper around console.log to print colors
+ */
+function c(msg,color){
+    !isw && console.log(color || "",
+        msg,
+        "\x1b[0m");
+    isw && console.log('%c'+
+        msg,
+        color ? "color:" + color : "");
 }
 /** testSuite main class */
 /**
@@ -232,7 +172,7 @@ function testSuite(options){
      * @property{Number} __testcase - testcase processed.
      */
     var $self = this;
-    $self.options = merge(options || {},defaults,true) ;
+    $self.options = Object.assign(defaults,options || {});
     $self.log = $self.options.printLog ? c : function(){};
     $self.tests = [];
     $self.html = "";
@@ -553,4 +493,47 @@ testSuite.prototype.createPerformanceTestCase = function(label,cb,async){
         asyncCb();
         return delta;
     }
-};w.testSuite = testSuite;})(typeof window !== "undefined" ? window : module.exports,typeof window !== "undefined");
+};
+(function(w){
+    w.performanceMeasuring = {
+        startPerf: function () {
+            return w.performance ? w.performance.now() : process.hrtime();
+        },
+        endPerf : function (time){
+            if (w.performance)
+                return w.performance.now() - time;
+            else {
+                var diff = process.hrtime(time);
+                console.log(diff);
+                return ( diff[0] * 1000 ) + ( diff[1]/ 1e6 );
+        }
+    }
+};
+})(typeof window !== "undefined" ? window : module.exports);
+
+function windowErrorMonitoring(attachErrorOnBody) {
+    if(window)
+        window.addEventListener('error', function (e) {
+            var msg = "Message: " + e.message;
+            var filename = "\nFilename: " + e.filename;
+            var colno = "\n Position -> line: " + e.lineno + ", col: " + e.colno;
+            var error = "\n Error: " + e.error;
+            console.error("[testSuite.js logging window errors]", msg, filename, colno, error);
+            if(attachErrorOnBody)
+                document.body.innerHTML += "<h1 style=" +
+                    "'width:100%!important;display:block!important;opacity:1!important;" +
+                    "color:red!important;text-shadow: 1px 1px 1em black!important;" +
+                    "font-size:24px!important;position:static!important;float:left!important;" +
+                    "transform:none!important;text-indent:0!important'>" +
+                    "[testSuite.js error monitoring]\n" + msg + filename + colno + error + "</h1>"
+        });
+    else{
+        var EventEmitter = require('events');
+        var myEmitter = new EventEmitter();
+        myEmitter.on('error',function(err){
+            console.error("[testSuite.js error monitoring]\n",JSON.stringify(err));
+        });
+    }
+}
+
+w.testSuite = testSuite;})(typeof window !== 'undefined' ? window : module.exports,typeof window !== 'undefined');

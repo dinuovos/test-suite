@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@dinuovos/test-suite Show html test</title>
+    <title>Test</title>
+    <style>
+
+    </style>
 </head>
 <body>
 <div id="el0" style="display:none"></div>
@@ -14,16 +17,27 @@
 <div id="el6"></div>
 <div id="testcase" style="clear:both;float:left;margin:20px 0;width:100%;"></div>
 <!-- dependencies -->
-<script src="../../lib/@dinuovos/assign-polyfill/index.js"></script>
-
+${dependenciesJsEncoded()}
 <!-- module js -->
-<script src="../../dist/test-suite.min.js"></script>
-
+${packageJsEncoded()}
+<script src="../test.data.organization.js"></script>
+<script src="../test.expect.module.js"></script>
 <script src="../test.expect.toBeInView.js"></script>
 <script>
-    var test = new testSuite();
+    var test = new testSuite({
+        onSuiteTerminate : function(suite){
+            console.log(suite.label + " is terminated");
+            test.drawing().showHtml(testcase);
+        },
+        onAsyncTerminate : function(){
+            test.drawing().showHtml(testcase).showHtmlInPopUp();
+            console.log(test.getTotalResult);
+        }
+    });
+    testDataOrganization(test);
+    testExpectModule(test);
     testExpectToBeInView(test);
-    test.drawing().showHtml(testcase);
+
 </script>
 </body>
 </html>

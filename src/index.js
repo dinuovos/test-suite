@@ -15,7 +15,7 @@ function testSuite(options){
      * @property{Number} __testcase - testcase processed.
      */
     var $self = this;
-    $self.options = merge(options || {},defaults,true) ;
+    $self.options = Object.assign(defaults,options || {});
     $self.log = $self.options.printLog ? c : function(){};
     $self.tests = [];
     $self.html = "";

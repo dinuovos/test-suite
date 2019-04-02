@@ -1,6 +1,6 @@
 {
   "name": "@dinuovos/test-suite",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "A simple and small testing suite for javascript, both browser and node.js",
   "keywords": [
     "html",
@@ -10,10 +10,9 @@
     "testing",
     "browser"
   ],
-  "main": "./dist/test-suite.js",
+  "main": "dist/test-suite.js",
   "files": [
-    "dist/",
-    "tests/"
+    "dist/"
   ],
   "author": "Simone Di Nuovo <dinuovos@gmail.com> (https://www.linkedin.com/in/simonedinuovo/)",
   "license": "ISC",
@@ -21,26 +20,25 @@
     "node": "~7.10.1"
   },
   "scripts": {
+    "build": "serve-browser-package config=serve-package-config.json",
     "test": "test-manager"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/dinuovos/test-suite.git"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@dinuovos/test-manager": "^0.1.0",
-    "grunt": "^1.0.4",
-    "grunt-contrib-concat": "^0.5.0",
-    "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-uglify": "^4.0.0"
+  "dependencies": {
+    "@dinuovos/assign-polyfill": "^1.0.1"
   },
-  "@dinuovos/serve-packages": {
+  "devDependencies": {
+    "@dinuovos/serve-browser-package": "^1.0.10",
+    "@dinuovos/test-manager": "~0.1.2"
+  },
+  "@dinuovos/serve-package": {
     "css": [],
     "js": [
-      "/dist/test-suite.min.js"
+      "src/"
     ],
-    "html": "",
-    "dependencies": []
+    "html": ""
   }
 }

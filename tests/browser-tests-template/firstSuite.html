@@ -6,11 +6,9 @@
 </head>
 <body>
 <!-- dependencies -->
-<script src="../../lib/@dinuovos/assign-polyfill/index.js"></script>
-
+${dependenciesJsEncoded()}
 <!-- module js -->
-<script src="../../dist/test-suite.min.js"></script>
-
+${packageJsEncoded()}
 <script src="../test.introduction.IE11.js"></script>
 <script>
     var test = new testSuite();

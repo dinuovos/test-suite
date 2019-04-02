@@ -14,11 +14,9 @@
 <div id="el6"></div>
 <div id="testcase" style="clear:both;float:left;margin:20px 0;width:100%;"></div>
 <!-- dependencies -->
-<script src="../../lib/@dinuovos/assign-polyfill/index.js"></script>
-
+${dependenciesJsEncoded()}
 <!-- module js -->
-<script src="../../dist/test-suite.min.js"></script>
-
+${packageJsEncoded()}
 <script src="../test.expect.toBeInView.js"></script>
 <script>
     var test = new testSuite();

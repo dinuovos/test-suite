@@ -1,0 +1,15 @@
+{
+  "templates" : {
+    "output" : "tests/browser-tests/",
+    "input" : "tests/browser-tests-template/"
+  },
+  "copyFiles": true,
+  "production": true,
+  "bundleName": "test-suite",
+  "distributeDir": "dist/",
+  "libraryDir": "lib/",
+  "bundleAll": false,
+  "bundleAllMinify": true,
+  "headerJsBundle" : "\"use strict\";\n(function(w,isw){\n",
+  "footerJsBundle" : "\nw.testSuite = testSuite;})(typeof window !== 'undefined' ? window : module.exports,typeof window !== 'undefined');\n"
+}
