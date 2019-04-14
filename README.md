@@ -16,7 +16,7 @@ npm install @dinuovos/test-suite
 ```
 and then
 ```js
-var {testSuite} = require(dirname + "/dist/test-suite.js");
+var {testSuite} = require("@dinuovos/test-suite");
 var test = new testSuite();
 ```
 Now you are ready to write your first testSuite!
