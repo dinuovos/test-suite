@@ -169,7 +169,7 @@ testSuite.prototype.expect = function(el){
                 color = isw ? "red" : "\x1b[31m "; // Bright red
             $self.log("[testSuite.js"+ testCase.label +" #"
                 + (testCase.value.length-1) + "]"
-                + " = " + test, color);
+                + " = " + test + (!test ? " instead is " + el.toString() : ""), color);
             // remove pending test if exists
             if($self.asyncTests.pendingTests.filter(function(e){
                     return e.testcase === testCase
